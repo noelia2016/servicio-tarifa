@@ -26,8 +26,8 @@ public class RestTemplateController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Tarifa> post(@RequestBody Tarifa Tarifa) {
-		return this.api_service.post(Tarifa);
+	public ResponseEntity<Tarifa> post(@RequestBody Tarifa tarifa) {
+		return this.api_service.post(tarifa);
 	}
 
 	@DeleteMapping("/{id}")

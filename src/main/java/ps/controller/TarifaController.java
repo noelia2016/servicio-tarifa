@@ -18,7 +18,7 @@ import ps.repository.TarifaRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Tarifas")
+@RequestMapping("/tarifas")
 public class TarifaController {
 	
 	@Autowired
@@ -39,13 +39,13 @@ public class TarifaController {
 
 	// Obtener todos los Tarifaes
 	@GetMapping
-	public ResponseEntity<Object> obtenerTodosLosTarifaes() {
+	public ResponseEntity<Object> obtenerTodosLosTarifas() {
 		try {
 			// TODO: Pasar al service.
-			TarifaResponse jr = new TarifaResponse(TarifaRepository.findAll());
+			TarifaResponse tr = new TarifaResponse(TarifaRepository.findAll());
 			// Algun llamado al service.
 			//throw new Exception("Este es un mensaje opcional");
-			return ResponseEntity.ok(jr);
+			return ResponseEntity.ok(tr);
 			
 		} catch (Exception e) {
 			// Ojo con esto por que puede enviar un error de BD al front,
@@ -57,15 +57,15 @@ public class TarifaController {
 
 	// Crear un nuevo Tarifa
 	@PostMapping
-	public Tarifa crearTarifa(@RequestBody Tarifa Tarifa) {
-		return TarifaRepository.save(Tarifa);
+	public Tarifa crearTarifa(@RequestBody Tarifa tarifa) {
+		return TarifaRepository.save(tarifa);
 	}
 
 	// Actualizar un Tarifa existente por ID
 	@PutMapping("/{id}")
-	public Tarifa actualizarTarifa(@PathVariable Long id, @RequestBody Tarifa TarifaActualizado) {
-		TarifaActualizado.setId(id);
-		return TarifaRepository.save(TarifaActualizado);
+	public Tarifa actualizarTarifa(@PathVariable Long id, @RequestBody Tarifa tarifaAct) {
+		tarifaAct.setId(id);
+		return TarifaRepository.save(tarifaAct);
 	}
 
 	// Eliminar un Tarifa por ID

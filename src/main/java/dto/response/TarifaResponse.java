@@ -6,17 +6,17 @@ import ps.model.Tarifa;
 
 public class TarifaResponse {
 
-	private List<Tarifa> Tarifaes;
+	private List<Tarifa> tarifas;
 
-	public TarifaResponse(List<Tarifa> Tarifas) {
-		this.Tarifaes = Tarifas;
+	public TarifaResponse(List<Tarifa> tarifas) {
+		this.tarifas = tarifas;
 	}
 
-	public List<Tarifa> getTarifaes() {
-		return Tarifas;
+	public List<Tarifa> getTarifas() {
+		return tarifas;
 	}
 
-	public void setTarifas(List<Tarifa> Tarifas) {
-		this.Tarifas = Tarifas;
+	public void setTarifas(List<Tarifa> tarifas) {
+		this.tarifas = tarifas;
 	}
 }
