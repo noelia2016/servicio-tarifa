@@ -14,7 +14,7 @@ public interface TarifaRepository extends JpaRepository<Tarifa, Long> {
 	List<Tarifa> findByValorGreaterThan(double valor);
 
 	// Método personalizado que utiliza una consulta JPQL
-	@Query("SELECT j FROM Tarifa t WHERE t.tarifa_normal > :valor")
+	@Query("SELECT t FROM Tarifa t WHERE t.tarifa_normal > :valor")
 	List<Tarifa> findTarifasConValorMayorQue(double valor);
 
 
