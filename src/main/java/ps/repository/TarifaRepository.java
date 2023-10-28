@@ -18,5 +18,9 @@ public interface TarifaRepository extends JpaRepository<Tarifa, Long> {
 	@Query("SELECT t FROM Tarifa t WHERE t.tarifa_normal > :valor")
 	List<Tarifa> findTarifasConValorMayorQue(double valor);*/
 
+	@Query("SELECT t.tarifa_normal FROM Tarifa t where t.fecha_desde = (SELECT MAX(tn.fecha_desde) FROM Tarifa tn) ")
+	public Double tarifaVigenteNormal();
 
+	@Query("SELECT t.tarifa_extra FROM Tarifa t where t.fecha_desde = (SELECT MAX(tn.fecha_desde) FROM Tarifa tn) ")
+	public Double tarifaVigenteExtra();
 }

@@ -18,7 +18,7 @@ import ps.repository.TarifaRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tarifa")
+//@RequestMapping("/tarifa")
 public class TarifaController {
 	
 	@Autowired
@@ -38,7 +38,7 @@ public class TarifaController {
 	}
 
 	// Obtener todos los Tarifas
-	@GetMapping
+	@GetMapping("/tarifas")
 	public ResponseEntity<Object> obtenerTodosLasTarifas() {
 		try {
 			// TODO: Pasar al service.
@@ -74,11 +74,15 @@ public class TarifaController {
 		TarifaRepository.deleteById(id);
 	}
 
+	// Obtener Tarifas con valor mayor a 1,000,000
+	@GetMapping("/tarifa-normal")
+	public Double tarifaVigenteNormal(){
+		return TarifaRepository.tarifaVigenteNormal();
+	}
+
 	// Obtener Tarifaes con valor mayor a 1,000,000
-	/*@GetMapping("/valor-mayor")
-	public List<Tarifa> obtenerTarifasConValorMayor() {
-		// return TarifaRepository.findByValorGreaterThan(1000000);
-		// return TarifaRepository.findTarifaesPorPosicion("Delantero");
-		return TarifaRepository.findTarifasConValorMayorQue(1000000);
-	}*/
+	@GetMapping("/tarifa-extra")
+	public Double tarifaVigenteExtra(){
+		return TarifaRepository.tarifaVigenteExtra();
+	}
 }

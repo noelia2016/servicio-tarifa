@@ -24,8 +24,8 @@ public class Tarifa {
 	@Column
 	private Date fecha_desde;
 
-	@Column
-	private Date fecha_hasta;
+	/*@Column
+	private Date fecha_hasta;*/
 
 	// Constructor vacío
 	public Tarifa() {
@@ -33,12 +33,12 @@ public class Tarifa {
 	}
 
 	// Constructor con todos los campos
-	public Tarifa(double valorN, double valorE, Date fecha_ds, Date fecha_hs) {
+	public Tarifa(double valorN, double valorE, Date fecha_ds /* , Date fecha_hs*/) {
 
 		this.tarifa_normal = valorN;
 		this.tarifa_extra = valorE;
 		this.fecha_desde = fecha_ds;
-		this.fecha_hasta = fecha_hs;
+		//this.fecha_hasta = fecha_hs;
 	}
 
 	/* geters y seters */
@@ -74,13 +74,13 @@ public class Tarifa {
 		this.fecha_desde = fechaDesde;
 	}
 
-	public Date getFechaHasta() {
+	/*public Date getFechaHasta() {
 		return fecha_hasta;
 	}
 
 	public void setFechaHasta(Date fechaHasta) {
 		this.fecha_hasta = fechaHasta;
-	}
+	}*/
 
 
 	
