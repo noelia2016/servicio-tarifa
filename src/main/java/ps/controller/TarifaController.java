@@ -18,7 +18,7 @@ import ps.repository.TarifaRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tarifas")
+@RequestMapping("/tarifa")
 public class TarifaController {
 	
 	@Autowired
@@ -37,15 +37,15 @@ public class TarifaController {
 		return "Un mensaje de texto.";
 	}
 
-	// Obtener todos los Tarifaes
+	// Obtener todos los Tarifas
 	@GetMapping
-	public ResponseEntity<Object> obtenerTodosLosTarifas() {
+	public ResponseEntity<Object> obtenerTodosLasTarifas() {
 		try {
 			// TODO: Pasar al service.
-			TarifaResponse tr = new TarifaResponse(TarifaRepository.findAll());
+			TarifaResponse p = new TarifaResponse(TarifaRepository.findAll());
 			// Algun llamado al service.
 			//throw new Exception("Este es un mensaje opcional");
-			return ResponseEntity.ok(tr);
+			return ResponseEntity.ok(p);
 			
 		} catch (Exception e) {
 			// Ojo con esto por que puede enviar un error de BD al front,
@@ -55,13 +55,13 @@ public class TarifaController {
 		}
 	}
 
-	// Crear un nuevo Tarifa
+	// Crear una nueva Tarifa
 	@PostMapping
 	public Tarifa crearTarifa(@RequestBody Tarifa tarifa) {
 		return TarifaRepository.save(tarifa);
 	}
 
-	// Actualizar un Tarifa existente por ID
+	// Actualizar Tarifa existente por ID
 	@PutMapping("/{id}")
 	public Tarifa actualizarTarifa(@PathVariable Long id, @RequestBody Tarifa tarifaAct) {
 		tarifaAct.setId(id);
@@ -75,10 +75,10 @@ public class TarifaController {
 	}
 
 	// Obtener Tarifaes con valor mayor a 1,000,000
-	@GetMapping("/valor-mayor")
+	/*@GetMapping("/valor-mayor")
 	public List<Tarifa> obtenerTarifasConValorMayor() {
 		// return TarifaRepository.findByValorGreaterThan(1000000);
 		// return TarifaRepository.findTarifaesPorPosicion("Delantero");
 		return TarifaRepository.findTarifasConValorMayorQue(1000000);
-	}
+	}*/
 }
