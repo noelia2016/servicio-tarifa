@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.token.TokenService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dto.requets.ErrorResponse;
 import dto.response.TarifaResponse;
 
+// para la documentacion
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -43,7 +43,7 @@ public class TarifaController {
 	private String variable_env;
 
 	@Autowired
-    private TokenService token;
+    private TokenServicio token;
 
 	@GetMapping("/variable_env")
 	public String obtener_variable_env() {
@@ -57,6 +57,7 @@ public class TarifaController {
 
 	// Obtener todos los Tarifas
 	@GetMapping("/tarifas")
+	@Operation(summary = "Obtiene todas las tarifas vigentes", description = "Se muestra un listado de las dos tarifas vigente al dia de la fecha")
 	public ResponseEntity<Object> obtenerTodosLasTarifas(@RequestHeader("Authorization") String authorization) {
 		
 		try {
@@ -81,6 +82,7 @@ public class TarifaController {
 
 	// Crear una nueva Tarifa
 	@PostMapping
+	@Operation(summary = "Agregar una tarifa", description = "Se incorpora una tarifa vigente especificado en un JSON siempre y cuando sea administrador el usuario conectado")
 	public Tarifa crearTarifa(@RequestBody Tarifa tarifa, @RequestHeader("Authorization") String authorization) {
 		
 		// si es administrador puede guardar tarifa
@@ -94,6 +96,7 @@ public class TarifaController {
 
 	// Actualizar Tarifa existente por ID
 	@PutMapping("/{id}")
+	@Operation(summary = "Actualiza una tarifa especifica", description = "Se actualiza una tarifa elegida especificado en un JSON")
 	public Tarifa actualizarTarifa(@PathVariable Long id, @RequestBody Tarifa tarifaAct, @RequestHeader("Authorization") String authorization) {
 
 		// si es administrador puede guardar tarifa
@@ -107,6 +110,7 @@ public class TarifaController {
 
 	// Eliminar un Tarifa por ID
 	@DeleteMapping("/{id}")
+	@Operation(summary = "Se elimina una tarifa", description = "Se borra una tarifa segun el id especifico")
 	public void eliminarTarifa(@PathVariable Long id, @RequestHeader("Authorization") String authorization ) {
 
 		// si es administrador puede eliminar la tarifa
@@ -119,12 +123,14 @@ public class TarifaController {
 
 	// Obtener Tarifas con valor mayor a 1,000,000
 	@GetMapping("/tarifa-normal")
+	@Operation(summary = "Devuelve la tarifa normal vigente", description = "Retorna la tarifa vigente actual para la fecha actual")
 	public Double tarifaVigenteNormal(){
 		return TarifaRepository.tarifaVigenteNormal();
 	}
 
 	// Obtener Tarifaes con valor mayor a 1,000,000
 	@GetMapping("/tarifa-extra")
+	@Operation(summary = "Devuelve la tarifa extra vigente", description = "Retorna la tarifa vigente actual para la fecha actual")
 	public Double tarifaVigenteExtra(){
 		return TarifaRepository.tarifaVigenteExtra();
 	}

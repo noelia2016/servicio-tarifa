@@ -1,17 +1,17 @@
 package ps;
 
-//import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-//import ps.controller.TarifaController;
+import ps.controller.TarifaController;
 import ps.model.Tarifa;
 
-/*public class TarifaTest {
+public class TarifaTest {
 	 
     private Tarifa tar=new Tarifa();
     
-    @Test
+    */@Test
     public void sumaTest(){
         //assertEquals(5,tar.suma(2, 3));
     }
@@ -31,5 +31,5 @@ import ps.model.Tarifa;
         //assertEquals(5,calc.divide(40, 8));
     }
 
-}*/
+}
 

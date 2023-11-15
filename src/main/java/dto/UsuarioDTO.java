@@ -5,6 +5,15 @@ public class UsuarioDTO {
     private String password;
 	private String email;
 	private String rol;
+	private String usuario;
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
 	public String getPassword() {
 		return password;

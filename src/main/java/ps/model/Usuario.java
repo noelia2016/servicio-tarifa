@@ -27,7 +27,7 @@ public class Usuario {
     @Column
     private String password;
 
-    private List<Object> cuentas;
+    //private List<Object> cuentas;
 
     public Usuario(){
         super();
