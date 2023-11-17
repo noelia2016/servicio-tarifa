@@ -39,16 +39,16 @@ public class TarifaController {
 	@Autowired
 	private TarifaRepository TarifaRepository;
 
-	@Value("${variable_env}")
-	private String variable_env;
+//	@Value("${variable_env}")
+//	private String variable_env;
 
 	@Autowired
     private TokenServicio token;
 
-	@GetMapping("/variable_env")
-	public String obtener_variable_env() {
-		return variable_env;
-	}
+//	@GetMapping("/variable_env")
+//	public String obtener_variable_env() {
+//		return variable_env;
+//	}
 
 	@GetMapping("/string")
 	public String obtener_string_hardcodeado() {

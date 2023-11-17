@@ -12,13 +12,13 @@ public class ClaseSpringApplication {
 		SpringApplication.run(ClaseSpringApplication.class, args);
 	}
 
-	/** 
-	 * Este metodo es un bean para los servicios
-	 * @return RestTemplate
-	 */
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
+//	/**
+//	 * Este metodo es un bean para los servicios
+//	 * @return RestTemplate
+//	 */
+//	@Bean
+//	public RestTemplate restTemplate(){
+//		return new RestTemplate();
+//	}
 
 }
